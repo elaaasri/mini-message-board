@@ -3,6 +3,6 @@ import { newMessageController } from "../controllers/newMessageController.js";
 
 const newMessageRouter = Router();
 
-newMessageRouter.get("/new", newMessageController);
+newMessageRouter.get("/", newMessageController);
 
 export { newMessageRouter };

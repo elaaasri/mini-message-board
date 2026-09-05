@@ -8,8 +8,8 @@ const PORT = 3000;
 // register view engine :
 app.set("view engine", "ejs");
 
-app.get("/", indexRouter);
-app.get("/new", newMessageRouter);
+app.use("/", indexRouter);
+app.use("/new", newMessageRouter);
 
 app.listen(PORT, (err) => {
   if (err) {
