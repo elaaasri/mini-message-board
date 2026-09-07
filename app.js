@@ -1,5 +1,5 @@
 import express from "express";
-import { messageRoutes } from "./routes/messageBoardRoutes.js";
+import { messageBoardRouter } from "./routes/messageBoardRoutes.js";
 
 const app = express();
 const PORT = 3000;
@@ -7,7 +7,7 @@ const PORT = 3000;
 // register view engine :a
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
-app.use("/", messageRoutes);
+app.use("/", messageBoardRouter);
 
 app.listen(PORT, (err) => {
   if (err) {

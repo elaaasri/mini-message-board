@@ -1,9 +1,11 @@
 <div>
     <h2> <%= title %> </h2>
+    <a href="/new">Add Message</a>
     <% messages.forEach(message => { %>
         <p>User: <%= message.user %></p>
         <p>Text: <%= message.text %></p>
-        <p>Date: <%= message.added %></p>  
+        <p>Date: <%= message.added %></p>
+        <a href="/<%=message.user%>">open</a>
         <hr>
     <% }); %>
 </div>

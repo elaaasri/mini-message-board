@@ -26,7 +26,12 @@ const createMessage = (req, res) => {
     user: messageUser,
     added: new Date(),
   });
+
   res.redirect("/");
 };
 
-export { getIndex, getNewMessageForm, createMessage };
+const getMessageObjByUser = (user) => {
+  return messages.find((message) => message.user == user);
+};
+
+export { getIndex, getNewMessageForm, createMessage, getMessageObjByUser };

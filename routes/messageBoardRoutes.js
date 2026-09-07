@@ -3,12 +3,19 @@ import {
   getIndex,
   getNewMessageForm,
   createMessage,
+  getMessageObjByUser,
 } from "../controllers/messageBoardController.js";
 
-const messageRoutes = Router();
+const messageBoardRouter = Router();
 
-messageRoutes.get("/", getIndex);
-messageRoutes.get("/new", getNewMessageForm);
-messageRoutes.post("/new", createMessage);
+messageBoardRouter.get("/", getIndex);
+messageBoardRouter.get("/new", getNewMessageForm);
+messageBoardRouter.post("/new", createMessage);
+messageBoardRouter.get("/:user", (req, res) => {
+  const user = req.params.user;
+  const message = getMessageObjByUser(user);
 
-export { messageRoutes };
+  res.render("message-details", { message });
+});
+
+export { messageBoardRouter };
