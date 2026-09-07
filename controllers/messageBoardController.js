@@ -15,9 +15,18 @@ const getIndex = (req, res) => {
   res.render("index", { title: "Mini Message Board", messages });
 };
 
-const newMessageController = (req, res) => {
-  console.log("zbe", req.body);
+const getNewMessageForm = (req, res) => {
   res.render("form");
 };
 
-export { getIndex, newMessageController };
+const createMessage = (req, res) => {
+  const { messageUser, messageText } = req.body;
+  messages.push({
+    text: messageText,
+    user: messageUser,
+    added: new Date(),
+  });
+  res.redirect("/");
+};
+
+export { getIndex, getNewMessageForm, createMessage };
