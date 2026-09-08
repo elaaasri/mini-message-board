@@ -1,11 +1,36 @@
-<div>
-    <h2> <%= title %> </h2>
-    <a href="/new">Add Message</a>
-    <% messages.forEach(message => { %>
-        <p>User: <%= message.user %></p>
-        <p>Text: <%= message.text %></p>
-        <p>Date: <%= message.added %></p>
-        <a href="/<%=message.user%>">open</a>
-        <hr>
-    <% }); %>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oldenburg&family=Rye&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/icons/letter-icon.png" />
+    <title>Mini-Message-Board</title>
+</head>
+<body>
+    
+    <div class="messages-page">
+        <h1> <%= title %> </h1>
+        <img src="/icons/letter-icon.png" alt="letter icon">
+        <a href="/new">+ Add Message</a>
+        <div class="message-list">
+            <% messages.forEach(message => { %>
+                <div class="message-card">
+                    <p>User: <%= message.user %></p>
+                    <p><%= message.text %></p>
+                    <hr>
+                    <!-- <div class=""> -->
+                        <div class="time-div">
+                            <img src="/icons/clock-icon.png" alt="">
+                            <%= message.added.toLocaleString()%>
+                        </div>
+                        <a href="/<%= message.user %>">open</a>
+                    <!-- </div> -->
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+</body>
+</html>

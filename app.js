@@ -7,6 +7,7 @@ const PORT = 3000;
 // register view engine :a
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.use("/", messageBoardRouter);
 
 app.listen(PORT, (err) => {

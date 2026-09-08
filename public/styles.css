@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oldenburg", serif;
+}
+body {
+  background: rgb(245, 197, 133);
+}
+.messages-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.messages-page img {
+  width: 60px;
+}
+.messages-page h1 {
+  margin-top: 40px;
+  font-size: 50px;
+  font-weight: bold;
+}
+.messages-page a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #000;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  height: 35px;
+  width: 12%;
+  background-color: rgba(255, 195, 116, 0.797);
+}
+.messages-page a:hover {
+  background-color: black;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+.messages-page a:active {
+  transform: translateY(-1px);
+}
+
+.message-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #2e2e2f;
+  cursor: pointer;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 3px dashed transparent;
+  margin: 1.2rem 0;
+  width: 300px;
+  min-height: 200px;
+  clip-path: polygon(
+    40px 0%,
+    100% 0,
+    100% calc(100% - 40px),
+    calc(100% - 40px) 100%,
+    0 100%,
+    0% 40px
+  );
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.time-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 13px;
+}
+.time-div img {
+  width: 35px;
+}
+.message-card a {
+  width: 50px;
+  font-size: 15px;
+}
