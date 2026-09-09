@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Oldenburg&family=Rye&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/icons/letter-icon.png" />
+    <script type="module" src="script.js" defer></script>
     <title>Mini-Message-Board</title>
 </head>
 <body>
@@ -17,20 +18,21 @@
         <div class="message-list">
             <% messages.forEach(message => { %>
                 <div class="message-card">
-                    <p>User: <%= message.user %></p>
+                    <span>User: <%= message.user %></span>
                     <p><%= message.text %></p>
                     <hr>
                     <!-- <div class=""> -->
                         <div class="time-div">
-                            <img src="/icons/clock-icon.png" alt="">
+                            <img src="/icons/clock-icon.png" alt="clock icon">
                             <%= message.added.toLocaleString()%>
                         </div>
                         <a href="/<%= message.user %>">open</a>
+                        <a data-user=<%= message.user %> class="like-button"><%= message.likes %></a>
                     <!-- </div> -->
                 </div>
-            <% }); %>
+                <% }); %>
+            </div>
         </div>
-    </div>
-
-</body>
+        
+    </body>
 </html>
