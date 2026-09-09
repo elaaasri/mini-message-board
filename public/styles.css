@@ -7,6 +7,7 @@
 body {
   background: rgb(245, 197, 133);
 }
+/* message page styles */
 .messages-page {
   display: flex;
   flex-direction: column;
@@ -17,7 +18,7 @@ body {
   width: 60px;
 }
 .messages-page h1 {
-  margin: 20px 0;
+  margin: 30px 0px 5px 0px;
   font-size: 50px;
   font-weight: bold;
 }
@@ -47,7 +48,7 @@ body {
 .messages-page a:active {
   transform: translateY(-1px);
 }
-
+/* message card styles */
 .message-card {
   display: flex;
   flex-direction: column;
@@ -57,7 +58,7 @@ body {
   padding: 20px;
   border: 3px dashed transparent;
   margin: 1.2rem 0;
-  width: 300px;
+  width: 350px;
   min-height: 200px;
   clip-path: polygon(
     40px 0%,
@@ -72,16 +73,36 @@ body {
   font-weight: 500;
   font-style: normal;
 }
-.time-div {
+
+.message-date {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  font-size: 13px;
+  font-size: 10px;
 }
-.time-div img {
-  width: 35px;
+.message-date img {
+  width: 30px;
 }
-.message-card a {
-  width: 50px;
-  font-size: 15px;
+.message-card p {
+  margin-bottom: 30px;
+  word-break: break-word;
+  margin-top: 5px;
+}
+.message-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.message-card-footer a {
+  width: 25%;
+}
+.message-like {
+  display: flex;
+  gap: 5px;
+}
+.fa-solid {
+  font-size: 20px;
+}
+.like {
+  cursor: pointer;
 }

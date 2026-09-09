@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Oldenburg&family=Rye&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/icons/letter-icon.png" />
+    <script src="https://kit.fontawesome.com/96f630ca48.js" crossorigin="anonymous"></script>
     <script type="module" src="script.js" defer></script>
     <title>Mini-Message-Board</title>
 </head>
@@ -15,24 +16,31 @@
         <h1> <%= title %> </h1>
         <img src="/icons/letter-icon.png" alt="letter icon">
         <a href="/new">+ Add Message</a>
-        <div class="message-list">
-            <% messages.forEach(message => { %>
+        
+        <div class="message-list">  
+            <% messages?.forEach(message => { %>
+
                 <div class="message-card">
-                    <span>User: <%= message.user %></span>
-                    <p><%= message.text %></p>
+                    <span>User: <%= message?.user %></span>
+                    <p><%= message?.text %></p>
                     <hr>
-                    <!-- <div class=""> -->
-                        <div class="time-div">
-                            <img src="/icons/clock-icon.png" alt="clock icon">
-                            <%= message.added.toLocaleString()%>
-                        </div>
-                        <a href="/<%= message.user %>">open</a>
-                        <a data-user=<%= message.user %> class="like-button"><%= message.likes %></a>
-                    <!-- </div> -->
+                    <div class="message-date">
+                        <img src="/icons/clock-icon.png" alt="clock icon">
+                        <span><%= message?.added.toLocaleString() %></span>
+                    </div>
+                    <div class="message-card-footer">
+                            <a href="/<%= message?.user %>">open</a>
+                            <div class="message-like">
+                                <i class="fa-solid fa-heart"></i>
+                                <span data-user="<%= message?.user %>" class="like"><%= message?.likes %></span>
+                            </div>
+                    </div>
                 </div>
-                <% }); %>
-            </div>
+                
+            <% }); %>
         </div>
+    </div>
+        
         
     </body>
 </html>

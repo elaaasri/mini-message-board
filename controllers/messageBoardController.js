@@ -35,6 +35,7 @@ const createMessage = (req, res) => {
     text: messageText,
     user: messageUser,
     added: new Date(),
+    likes: 0,
   });
 
   res.redirect("/");

@@ -15,9 +15,9 @@ messageBoardRouter.get("/new", getNewMessageForm);
 messageBoardRouter.post("/new", createMessage);
 messageBoardRouter.get("/:user", (req, res) => {
   const user = req.params.user;
-  const messageObj = getMessageObjByUser(user);
+  const message = getMessageObjByUser(user);
 
-  res.render("message-details", { messageObj });
+  res.render("message-details", { message });
 });
 
 export { messageBoardRouter };
