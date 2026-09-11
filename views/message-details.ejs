@@ -3,14 +3,6 @@
   <%- include('./partials/head.ejs') %>
   <body>
     <%- include('./partials/header.ejs') %>
-    <!-- <div class="message-details">
-      <p>User: <%= message?.user %></p>
-      <p>Text: <%= message?.text %></p>
-      <p>Date: <%= message?.added.toLocaleString() %></p>
-      <p>like: <%= message?.likes %></p>
-    </div> -->
-
-    <!-- <h2>Message</h2> -->
     <div class="message-details">
       <div class="message-top">
         <p><%= message?.user.toUpperCase() %></p>
@@ -20,5 +12,6 @@
       <p><%= message?.text %></p>
       <p>LIKES: <%= message?.likes %></p>
     </div>
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>

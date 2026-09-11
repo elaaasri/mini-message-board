@@ -17,14 +17,6 @@ const getIndex = (req, res) => {
   res.render("index", { messages });
 };
 
-const handleMessageLike = (req, res) => {
-  const user = req.body.user;
-  const message = messages.find((m) => m.user == user);
-  message.likes++;
-  console.log(message.likes);
-  res.sendStatus(200);
-};
-
 const getNewMessageForm = (req, res) => {
   res.render("form");
 };
@@ -41,14 +33,23 @@ const createMessage = (req, res) => {
   res.redirect("/");
 };
 
-const getMessageObjByUser = (user) => {
-  return messages.find((message) => message.user == user);
+const messageDetails = (req, res) => {
+  const user = req.params.user;
+  const message = messages.find((message) => message.user == user);
+  res.render("message-details", { message });
+};
+
+const handleMessageLike = (req, res) => {
+  const user = req.params.user;
+  const message = messages.find((m) => m.user == user);
+  message.likes++;
+  res.sendStatus(200);
 };
 
 export {
   getIndex,
   getNewMessageForm,
   createMessage,
-  getMessageObjByUser,
+  messageDetails,
   handleMessageLike,
 };

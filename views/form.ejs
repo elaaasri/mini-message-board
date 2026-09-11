@@ -8,10 +8,11 @@
       <form class="message-form" method="POST" action="/new">
         <label for="author-name">Author Name:</label>
         <input name="messageUser" type="text" required />
-        <label for="message-text">Message Text:</label>
+        <label for="message-text">Message:</label>
         <textarea name="messageText" type="text" required></textarea>
         <button id="submit-button" type="submit">Submit</button>
       </form>
     </div>
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>

@@ -5,10 +5,8 @@ const likeButtons = document.getElementsByClassName("like");
     const user = e.target.dataset.user;
     const heartIcon = e.target.previousElementSibling;
 
-    const response = await fetch("/like", {
+    const response = await fetch(`/likes/${user}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user }),
     });
 
     if (response.ok) {
