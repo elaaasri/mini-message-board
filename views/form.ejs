@@ -1,12 +1,17 @@
-<%- include('./partials/head.ejs') %>
-<div class="form-page">
-  <h1>Mini Message Board</h1>
-  <hr />
-  <form class="message-form" method="POST" action="/new">
-    <label for="author-name">Author Name:</label>
-    <input name="messageUser" type="text" required />
-    <label for="message-text">Message Text:</label>
-    <textarea name="messageText" type="text" required></textarea>
-    <button id="submit-button" type="submit">Submit</button>
-  </form>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/header.ejs') %>
+    <div class="form-page">
+      <hr />
+      <form class="message-form" method="POST" action="/new">
+        <label for="author-name">Author Name:</label>
+        <input name="messageUser" type="text" required />
+        <label for="message-text">Message Text:</label>
+        <textarea name="messageText" type="text" required></textarea>
+        <button id="submit-button" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -14,7 +14,7 @@ const messages = [
 ];
 
 const getIndex = (req, res) => {
-  res.render("index", { title: "Mini Message Board", messages });
+  res.render("index", { messages });
 };
 
 const handleMessageLike = (req, res) => {

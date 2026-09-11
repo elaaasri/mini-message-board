@@ -7,20 +7,26 @@
 body {
   background: rgb(245, 197, 133);
 }
+/* header styles */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.header-title {
+  margin: 30px 0px 5px 0px;
+  font-size: 50px;
+  font-weight: bold;
+}
+.header-icon {
+  width: 60px;
+}
 /* message page styles */
 .messages-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-}
-.messages-page img {
-  width: 60px;
-}
-.messages-page h1 {
-  margin: 30px 0px 5px 0px;
-  font-size: 50px;
-  font-weight: bold;
 }
 .messages-page a {
   text-decoration: none;
@@ -73,7 +79,9 @@ body {
   font-weight: 500;
   font-style: normal;
 }
-
+.message-card p:nth-child(1) {
+  font-weight: bold;
+}
 .message-date {
   display: flex;
   justify-content: flex-end;
@@ -113,11 +121,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 30px;
-}
-.form-page h1 {
-  margin: 30px 0px 5px 0px;
-  font-size: 50px;
-  font-weight: bold;
 }
 .form-page hr {
   width: 50%;
@@ -173,3 +176,119 @@ body {
 #submit-button:active {
   transform: translateY(-1px);
 }
+/* message details styles */
+/* .message-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+  border-left: solid rgb(59, 67, 131) 8px;
+  padding: 2%;
+  width: 80%;
+  font-size: 1.5rem;
+  gap: 10px;
+  word-break: break-word;
+  margin-top: 70px;
+} */
+.message-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  min-height: 200px;
+  justify-self: center;
+  border: rgb(218, 134, 54) 1px solid;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 2%;
+}
+.message-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.message-top :nth-child(1) {
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+.message-top :nth-child(2) {
+  font-size: 13px;
+}
+.message-details :nth-child(3) {
+  padding: 5%;
+  overflow-wrap: anywhere;
+}
+.message-details :nth-child(4) {
+  text-align: end;
+  width: 100%;
+  font-size: 13px;
+  font-style: italic;
+}
+.message-details hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgb(180, 96, 12);
+}
+/* not found page styles */
+.notFoundPageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notFoundPageContainer img {
+  width: 350px;
+}
+.notFoundPageContainer div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+.notFoundPageContainer div span:first-child {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.notFoundPageContainer div span:nth-child(2) {
+  font-size: 7rem;
+}
+.notFoundPageContainer div span:nth-child(3) {
+  font-weight: bold;
+}
+.button {
+  text-align: center;
+  padding: 3%;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  width: 40%;
+  font-size: 12px;
+}
+.button:hover {
+  background-color: rgba(47, 162, 203, 0.3);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-7px);
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.button:active {
+  transform: translateY(-1px);
+}
+.notFoundPageContainer a {
+  text-decoration: none;
+}
+/* 
+user bold
+better naming form message text  
+add not found page
+clean logic code 
+*/
