@@ -106,3 +106,70 @@ body {
 .like {
   cursor: pointer;
 }
+/* message form styles */
+.form-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.form-page h1 {
+  margin: 30px 0px 5px 0px;
+  font-size: 50px;
+  font-weight: bold;
+}
+.form-page hr {
+  width: 50%;
+  border: none;
+  border-top: 1px solid rgb(222, 136, 50);
+}
+.message-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 50%;
+  font-size: 1.2rem;
+  color: black;
+  gap: 5px;
+  justify-self: center;
+  justify-content: center;
+  justify-items: center;
+  margin: 0 auto;
+}
+.message-form input,
+.message-form textarea {
+  color: black;
+  padding-left: 2%;
+}
+.message-form input {
+  height: 50px;
+}
+.message-form textarea {
+  height: 120px;
+  padding-top: 2%;
+}
+#submit-button {
+  align-self: center;
+  font-weight: bold;
+  color: #000;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 8px 15px rgb(0, 0, 0);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  height: 40px;
+  width: 20%;
+  margin-top: 15px;
+  background-color: rgba(255, 195, 116, 0.797);
+}
+#submit-button:hover {
+  background-color: black;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+#submit-button:active {
+  transform: translateY(-1px);
+}
