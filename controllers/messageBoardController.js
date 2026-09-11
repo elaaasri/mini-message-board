@@ -35,8 +35,12 @@ const createMessage = (req, res) => {
 
 const messageDetails = (req, res) => {
   const user = req.params.user;
-  const message = messages.find((message) => message.user == user);
-  res.render("message-details", { message });
+  const message = messages.find((message) => message.user === user);
+
+  if (message) {
+    return res.render("message-details", { message });
+  }
+  return res.status(404).render("not-found-page");
 };
 
 const handleMessageLike = (req, res) => {
@@ -46,10 +50,15 @@ const handleMessageLike = (req, res) => {
   res.sendStatus(200);
 };
 
+const notFoundPage = (req, res) => {
+  res.status(404).render("not-found-page");
+};
+
 export {
   getIndex,
   getNewMessageForm,
   createMessage,
   messageDetails,
   handleMessageLike,
+  notFoundPage,
 };
