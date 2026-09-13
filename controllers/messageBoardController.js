@@ -23,6 +23,7 @@ const getNewMessageForm = (req, res) => {
 
 const createMessage = (req, res) => {
   const { messageUser, messageText } = req.body;
+
   messages.push({
     text: messageText,
     user: messageUser,
@@ -45,7 +46,7 @@ const messageDetails = (req, res) => {
 
 const handleMessageLike = (req, res) => {
   const user = req.params.user;
-  const message = messages.find((m) => m.user == user);
+  const message = messages.find((m) => m.user === user);
   message.likes++;
   res.sendStatus(200);
 };
