@@ -12,7 +12,7 @@ const SQL = `
     );
 
     INSERT INTO messages (username, text, added, likes) 
-    VALUES ('elaaasri', 'Hi There', NOW(), 0);
+    VALUES ('elaaasri', 'Hi There!', NOW(), 0);
 `;
 
 async function main() {

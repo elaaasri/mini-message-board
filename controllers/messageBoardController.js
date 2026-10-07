@@ -1,21 +1,31 @@
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-    likes: 0,
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-    likes: 0,
-  },
-];
+import { getAllMessages } from "../db/queries.js";
 
-const getIndex = (req, res) => {
+// const messages = [
+//   {
+//     text: "Hi there!",
+//     user: "Amando",
+//     added: new Date(),
+//     likes: 0,
+//   },
+//   {
+//     text: "Hello World!",
+//     user: "Charles",
+//     added: new Date(),
+//     likes: 0,
+//   },
+// ];
+
+// id: 1,
+//   username: 'elaaasri',
+//   text: 'Hi There',
+//   added: 2026-10-07T21:57:02.653Z,
+//   likes: 0
+
+async function getIndex(req, res) {
+  const messages = await getAllMessages();
+  console.log(messages);
   res.render("index", { messages });
-};
+}
 
 const getNewMessageForm = (req, res) => {
   res.render("form");
