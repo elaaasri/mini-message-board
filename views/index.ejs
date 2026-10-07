@@ -12,11 +12,11 @@
 
                 <div class="message-card">
                     <p>User: <%= message?.username %></p>
-                    <p><%= message?.text %></p>
+                    <p><%= message?.message %></p>
                     <hr>
                     <div class="message-date">
                         <img src="/icons/clock-icon.png" alt="clock icon">
-                        <span><%= message?.added.toLocaleString() %></span>
+                        <span><%= message?.added?.toLocaleString() %></span>
                     </div>
                     <div class="message-card-footer">
                         <a href="/<%= message?.user %>">open</a>

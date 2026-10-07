@@ -11,10 +11,10 @@ import {
 const messageBoardRouter = Router();
 
 messageBoardRouter.get("/", getIndex);
-messageBoardRouter.post("/likes/:user", handleMessageLike);
 messageBoardRouter.get("/new", getNewMessageForm);
 messageBoardRouter.post("/new", createMessage);
 messageBoardRouter.get("/:user", messageDetails);
+messageBoardRouter.post("/likes/:user", handleMessageLike);
 messageBoardRouter.use(notFoundPage);
 
 export { messageBoardRouter };

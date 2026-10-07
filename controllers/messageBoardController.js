@@ -1,4 +1,4 @@
-import { getAllMessages } from "../db/queries.js";
+import { getAllMessages, insertNewMessage } from "../db/queries.js";
 
 // const messages = [
 //   {
@@ -23,7 +23,6 @@ import { getAllMessages } from "../db/queries.js";
 
 async function getIndex(req, res) {
   const messages = await getAllMessages();
-  console.log(messages);
   res.render("index", { messages });
 }
 
@@ -31,18 +30,11 @@ const getNewMessageForm = (req, res) => {
   res.render("form");
 };
 
-const createMessage = (req, res) => {
-  const { messageUser, messageText } = req.body;
-
-  messages.push({
-    text: messageText,
-    user: messageUser,
-    added: new Date(),
-    likes: 0,
-  });
-
+async function createMessage(req, res) {
+  const { username, message } = req.body;
+  await insertNewMessage(username, message);
   res.redirect("/");
-};
+}
 
 const messageDetails = (req, res) => {
   const user = req.params.user;
