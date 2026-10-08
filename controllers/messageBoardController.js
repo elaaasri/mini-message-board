@@ -1,25 +1,8 @@
-import { getAllMessages, insertNewMessage } from "../db/queries.js";
-
-// const messages = [
-//   {
-//     text: "Hi there!",
-//     user: "Amando",
-//     added: new Date(),
-//     likes: 0,
-//   },
-//   {
-//     text: "Hello World!",
-//     user: "Charles",
-//     added: new Date(),
-//     likes: 0,
-//   },
-// ];
-
-// id: 1,
-//   username: 'elaaasri',
-//   text: 'Hi There',
-//   added: 2026-10-07T21:57:02.653Z,
-//   likes: 0
+import {
+  getAllMessages,
+  insertNewMessage,
+  getMessageById,
+} from "../db/queries.js";
 
 async function getIndex(req, res) {
   const messages = await getAllMessages();
@@ -30,21 +13,21 @@ const getNewMessageForm = (req, res) => {
   res.render("form");
 };
 
-async function createMessage(req, res) {
+async function createMessagePost(req, res) {
   const { username, message } = req.body;
   await insertNewMessage(username, message);
   res.redirect("/");
 }
 
-const messageDetails = (req, res) => {
-  const user = req.params.user;
-  const message = messages.find((message) => message.user === user);
+async function getMessageDetails(req, res) {
+  const id = req.params.id;
+  const msg = await getMessageById(id);
 
-  if (message) {
-    return res.render("message-details", { message });
+  if (msg) {
+    return res.render("message-details", { msg });
   }
   return res.status(404).render("not-found-page");
-};
+}
 
 const handleMessageLike = (req, res) => {
   const user = req.params.user;
@@ -60,8 +43,8 @@ const notFoundPage = (req, res) => {
 export {
   getIndex,
   getNewMessageForm,
-  createMessage,
-  messageDetails,
+  createMessagePost,
+  getMessageDetails,
   handleMessageLike,
   notFoundPage,
 };

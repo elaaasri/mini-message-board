@@ -8,21 +8,21 @@
         <a href="/new">+ Add Message</a>
 
         <div class="message-list"> 
-            <% messages?.forEach(message => { %>
+            <% messages?.forEach(msg => { %>
 
                 <div class="message-card">
-                    <p>User: <%= message?.username %></p>
-                    <p><%= message?.message %></p>
+                    <p>User: <%= msg?.username %></p>
+                    <p><%= msg?.message %></p>
                     <hr>
                     <div class="message-date">
                         <img src="/icons/clock-icon.png" alt="clock icon">
-                        <span><%= message?.added?.toLocaleString() %></span>
+                        <span><%= msg?.added?.toLocaleString() %></span>
                     </div>
                     <div class="message-card-footer">
-                        <a href="/<%= message?.user %>">open</a>
+                        <a href="/<%= msg?.id %>">open</a>
                         <div class="message-like">
                             <i class="fa-solid fa-heart"></i>
-                            <span data-user="<%= message?.user %>" class="like"><%= message?.likes %></span>
+                            <span data-user="<%= msg?.user %>" class="like"><%= msg?.likes %></span>
                         </div>
                     </div>
                 </div>
