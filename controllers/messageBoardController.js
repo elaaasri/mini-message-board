@@ -2,6 +2,7 @@ import {
   getAllMessages,
   insertNewMessage,
   getMessageById,
+  incrementMessageById,
 } from "../db/queries.js";
 
 async function getIndex(req, res) {
@@ -29,12 +30,11 @@ async function getMessageDetails(req, res) {
   return res.status(404).render("not-found-page");
 }
 
-const handleMessageLike = (req, res) => {
-  const user = req.params.user;
-  const message = messages.find((m) => m.user === user);
-  message.likes++;
+async function handleMessageLike(req, res) {
+  const id = req.params.id;
+  await incrementMessageById(id);
   res.sendStatus(200);
-};
+}
 
 const notFoundPage = (req, res) => {
   res.status(404).render("not-found-page");

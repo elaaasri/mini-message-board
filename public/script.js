@@ -1,11 +1,12 @@
-const likeButtons = document.getElementsByClassName("like");
+const likeButtons = document.querySelectorAll(".likes");
 
 [...likeButtons].forEach((button) => {
   button.addEventListener("click", async (e) => {
-    const user = e.target.dataset.user;
+    const id = e.target.dataset.id;
     const heartIcon = e.target.previousElementSibling;
+    console.log("zbe", id);
 
-    const response = await fetch(`/likes/${user}`, {
+    const response = await fetch(`/likes/${id}`, {
       method: "POST",
     });
 
