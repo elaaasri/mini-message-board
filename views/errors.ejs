@@ -4,14 +4,11 @@
 
   <body>
     <div class="errors-page">
-      <!-- <img src="/icons/not-found-page-icon.webp" /> -->
       <div>
-        <h1>Error:</h1>
-        <%= message %>
-        <!-- <span>404</span> -->
-        <!-- <span>We Can't Find The Page That You're Looking For :( !</span> -->
-        <a href="/" class="button">Back To Home</a>
+        <h2>Error:</h2>
+        <span> <%= message %> </span>
       </div>
+      <a href="/" class="button">Back To Home</a>
     </div>
     <%- include('./partials/footer.ejs') %>
   </body>

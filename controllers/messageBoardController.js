@@ -38,11 +38,9 @@ async function getMessageDetails(req, res) {
   try {
     const id = Number(req.params.id);
     const msg = await getMessageById(id);
-
     if (!msg) {
       return res.status(404).render("not-found-page");
     }
-
     return res.render("message-details", { msg });
   } catch (err) {
     console.log(err);
