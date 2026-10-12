@@ -20,9 +20,11 @@ async function getMessageById(id) {
 }
 
 async function incrementMessageById(id) {
-  await pool.query("UPDATE messages SET likes = likes + 1  WHERE id = $1", [
-    id,
-  ]);
+  const { rowCount } = await pool.query(
+    "UPDATE messages SET likes = likes + 1  WHERE id = $1",
+    [id],
+  );
+  return rowCount;
 }
 
 export {

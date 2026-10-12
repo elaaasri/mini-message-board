@@ -4,13 +4,15 @@ const likeButtons = document.querySelectorAll(".likes");
   button.addEventListener("click", async (e) => {
     const id = e.target.dataset.id;
     const heartIcon = e.target.previousElementSibling;
-    console.log("zbe", id);
 
     const response = await fetch(`/likes/${id}`, {
       method: "POST",
     });
 
-    if (response.ok) {
+    if (!response.ok) {
+      const html = await response.text();
+      document.documentElement.innerHTML = html;
+    } else {
       e.target.textContent++;
       heartIcon.style.color = "red";
     }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <div class="errors-page">
+      <!-- <img src="/icons/not-found-page-icon.webp" /> -->
+      <div>
+        <h1>Error:</h1>
+        <%= message %>
+        <!-- <span>404</span> -->
+        <!-- <span>We Can't Find The Page That You're Looking For :( !</span> -->
+        <a href="/" class="button">Back To Home</a>
+      </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

@@ -4,8 +4,6 @@ import { messageBoardRouter } from "./routes/messageBoardRoutes.js";
 const app = express();
 const PORT = 3000;
 
-console.log(process.env.DB_URL);
-
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));

@@ -6,8 +6,15 @@ import {
 } from "../db/queries.js";
 
 async function getIndex(req, res) {
-  const messages = await getAllMessages();
-  res.render("index", { messages });
+  try {
+    const messages = await getAllMessages();
+    res.render("index", { messages });
+  } catch (err) {
+    console.log(err);
+    res.status(500).render("errors", {
+      message: "Failed to load messages. Plase try again.",
+    });
+  }
 }
 
 const getNewMessageForm = (req, res) => {
@@ -16,24 +23,53 @@ const getNewMessageForm = (req, res) => {
 
 async function createMessagePost(req, res) {
   const { username, message } = req.body;
-  await insertNewMessage(username, message);
-  res.redirect("/");
+  try {
+    await insertNewMessage(username, message);
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+    res.status(500).render("errors", {
+      message: "Failed to create message. Please try again.",
+    });
+  }
 }
 
 async function getMessageDetails(req, res) {
-  const id = req.params.id;
-  const msg = await getMessageById(id);
+  try {
+    const id = Number(req.params.id);
+    const msg = await getMessageById(id);
 
-  if (msg) {
+    if (!msg) {
+      return res.status(404).render("not-found-page");
+    }
+
     return res.render("message-details", { msg });
+  } catch (err) {
+    console.log(err);
+    res.status(500).render("errors", {
+      message: "Failed to load message details. Please try again.",
+    });
   }
-  return res.status(404).render("not-found-page");
 }
 
 async function handleMessageLike(req, res) {
-  const id = req.params.id;
-  await incrementMessageById(id);
-  res.sendStatus(200);
+  try {
+    const id = Number(req.params.id);
+    const rowCount = await incrementMessageById(id);
+
+    if (rowCount === 0) {
+      return res.status(404).render("errors", {
+        message: "Message not found. Please try again.",
+      });
+    }
+
+    return res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).render("errors", {
+      message: "Failed to like message. Plase try again.",
+    });
+  }
 }
 
 const notFoundPage = (req, res) => {
