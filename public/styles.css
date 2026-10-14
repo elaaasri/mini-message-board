@@ -294,6 +294,10 @@ header {
   align-self: center;
   margin: auto 0;
 }
+.error-msg {
+  color: red;
+  font-size: 15px;
+}
 /* footer styles */
 .footer {
   min-height: 40px;

@@ -6,10 +6,19 @@
     <div class="form-page">
       <hr />
       <form class="message-form" method="POST" action="/new">
-        <label for="username">Author Name:</label>
-        <input id="username" name="username" type="text" required />
+        <label for="username"> Author Name: </label>
+        <span class="error-msg"> <%= errors?.username?.msg || '' %> </span>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          value="<%= username  || "" %>"
+        />
         <label for="message">Message:</label>
-        <textarea id="message" name="message" type="text" required></textarea>
+        <span class="error-msg"> <%= errors?.message?.msg || "" %> </span>
+        <textarea id="message" name="message" type="text">
+        <%= message  || "" %> 
+        </textarea>
         <button id="submit-button" type="submit">Submit</button>
       </form>
     </div>

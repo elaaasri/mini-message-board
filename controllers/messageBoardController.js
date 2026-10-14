@@ -4,6 +4,7 @@ import {
   getMessageById,
   incrementMessageById,
 } from "../db/queries.js";
+import { validationResult, matchedData } from "express-validator";
 
 async function getIndex(req, res) {
   try {
@@ -12,22 +13,33 @@ async function getIndex(req, res) {
   } catch (err) {
     console.log(err);
     res.status(500).render("errors", {
-      message: "Failed to load messages. Plase try again.",
+      message: "Failed to load messages. Please try again.",
     });
   }
 }
 
 const getNewMessageForm = (req, res) => {
-  res.render("form");
+  res.render("form", { errors: {}, username: "", message: "" });
 };
 
 async function createMessagePost(req, res) {
   const { username, message } = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).render("form", {
+      errors: errors.mapped(),
+      username,
+      message,
+    });
+  }
+
   try {
     await insertNewMessage(username, message);
     res.redirect("/");
   } catch (err) {
     console.log(err);
+
     res.status(500).render("errors", {
       message: "Failed to create message. Please try again.",
     });
@@ -65,7 +77,7 @@ async function handleMessageLike(req, res) {
   } catch (err) {
     console.log(err);
     return res.status(500).render("errors", {
-      message: "Failed to like message. Plase try again.",
+      message: "Failed to like message. Please try again.",
     });
   }
 }
