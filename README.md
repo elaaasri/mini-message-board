@@ -4,7 +4,7 @@ A simple message board built with Node.js, Express, EJS, and CSS.
 
 ## Live Demo
 
-[View the live demo](https://mini-message-board-rs76.onrender.com/)
+[View the live demo](https://mini-message-board-4los.onrender.com/)
 
 ## Screenshot
 
